@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5315150630211732162}
   - component: {fileID: 3667004879589088051}
   - component: {fileID: -4943506660718292015}
-  - component: {fileID: 1352844202696507551}
+  - component: {fileID: 4101803157925422172}
   m_Layer: 0
   m_Name: Netcode Test 1
   m_TagString: Untagged
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12b6d229a8cc4f40963ae4fc0fb7203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1352844202696507551
+--- !u!114 &4101803157925422172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7725549672294179831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   UseUnreliableDeltas: 0
