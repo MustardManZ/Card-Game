@@ -7,12 +7,12 @@ using UnityEngine;
 
 public class CardScript : MonoBehaviour
 {
-    SpriteRenderer art;
-    TextMeshPro nameDisplay;
-    TextMeshPro hpDisplay;
-    TextMeshPro speedDisplay;
-    TextMeshPro dmgDisplay;
-    TextMeshPro costDisplay;
+    Sprite art;
+    string nameDisplay;
+    string hpDisplay;
+    string speedDisplay;
+    string dmgDisplay;
+    string costDisplay;
     new string name;
     public int hp;
     public int speed;
@@ -27,33 +27,31 @@ public class CardScript : MonoBehaviour
 
     private void Start()
     {
-        art = transform.Find("Art").GetComponent<SpriteRenderer>();
-        nameDisplay = transform.Find("Name (TMP)").GetComponent<TextMeshPro>();
-        hpDisplay = transform.Find("Health (TMP)").GetComponent<TextMeshPro>();
-        speedDisplay = transform.Find("Speed (TMP)").GetComponent<TextMeshPro>();
-        dmgDisplay = transform.Find("Attack (TMP)").GetComponent<TextMeshPro>();
-        costDisplay = transform.Find("Cost (TMP)").GetComponent<TextMeshPro>();
+        art = transform.Find("Art").GetComponent<SpriteRenderer>().sprite;
+        nameDisplay = transform.Find("Name (TMP)").GetComponent<TextMeshPro>().text;
+        hpDisplay = transform.Find("Health (TMP)").GetComponent<TextMeshPro>().text;
+        speedDisplay = transform.Find("Speed (TMP)").GetComponent<TextMeshPro>().text;
+        dmgDisplay = transform.Find("Attack (TMP)").GetComponent<TextMeshPro>().text;
+        costDisplay = transform.Find("Cost (TMP)").GetComponent<TextMeshPro>().text;
     }
 
     private void Update()
     {
-        hpDisplay.text = hp.ToString();
-        speedDisplay.text = speed.ToString();
-        dmgDisplay.text = dmg.ToString();
-        costDisplay.text = cost.ToString();
+        hpDisplay = hp.ToString();
+        speedDisplay = speed.ToString();
+        dmgDisplay = dmg.ToString();
+        costDisplay = cost.ToString();
     }
 
-    public CardScript(Sprite cardArt, string cardName, int cardHp, int cardSpeed, int cardDmg, int cardCost, int cardLimit, int cardRange, int cardArmor, bool cardCharge, bool cardStealth, bool cardHeroic)
+    public void newCard(Sprite cardArt, string cardName, int cardHp, int cardSpeed, int cardDmg, int cardCost, int cardLimit, int cardRange, int cardArmor, bool cardCharge, bool cardStealth, bool cardHeroic)
     {
-        art.sprite = cardArt;
+        art = cardArt;
         name = cardName;
-        nameDisplay.text = name;
+        nameDisplay = name;
         hp = cardHp;
         speed = cardSpeed;
         dmg = cardDmg;
         cost = cardCost;
         limit = cardLimit;
     }
-
-    
 }

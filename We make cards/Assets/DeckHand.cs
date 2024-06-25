@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class DeckHand : MonoBehaviour
 {
+    public Sprite[] screwYou;
     public GameObject card;
-    public List<object> deck = new List<object>();
-    public List<object> hand = new List<object>();
+    public List<GameObject> deck = new List<GameObject>();
+    public List<GameObject> hand = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < 7; i++)
         {
-            deck[i] = card;
+            deck.Add(Instantiate(card, transform.position, transform.rotation));
+            deck[i].GetComponent<CardScript>().newCard(screwYou[8], "Person", 2, 2, 2, 1, 4, 1, 0, false, false, false);
         }
-
     }
 
     // Update is called once per frame
