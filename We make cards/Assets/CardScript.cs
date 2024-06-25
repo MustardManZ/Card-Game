@@ -25,17 +25,17 @@ public class CardScript : MonoBehaviour
     public bool charge;
     public bool heroic;
 
-    private void Start()
+    void Start()
     {
-        art = transform.Find("Art").GetComponent<SpriteRenderer>().sprite;
-        nameDisplay = transform.Find("Name (TMP)").GetComponent<TextMeshPro>().text;
-        hpDisplay = transform.Find("Health (TMP)").GetComponent<TextMeshPro>().text;
-        speedDisplay = transform.Find("Speed (TMP)").GetComponent<TextMeshPro>().text;
-        dmgDisplay = transform.Find("Attack (TMP)").GetComponent<TextMeshPro>().text;
-        costDisplay = transform.Find("Cost (TMP)").GetComponent<TextMeshPro>().text;
+        transform.Find("Art").GetComponent<SpriteRenderer>().sprite = art;
+        transform.Find("Name (TMP)").GetComponent<TextMeshPro>().text = nameDisplay;
+        transform.Find("Health (TMP)").GetComponent<TextMeshPro>().text = hpDisplay;
+        transform.Find("Speed (TMP)").GetComponent<TextMeshPro>().text = speedDisplay;
+        transform.Find("Attack (TMP)").GetComponent<TextMeshPro>().text = dmgDisplay;
+        transform.Find("Cost (TMP)").GetComponent<TextMeshPro>().text = costDisplay;
     }
 
-    private void Update()
+    void Update()
     {
         hpDisplay = hp.ToString();
         speedDisplay = speed.ToString();
