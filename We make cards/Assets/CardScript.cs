@@ -54,4 +54,6 @@ public class CardScript : MonoBehaviour
         cost = cardCost;
         limit = cardLimit;
     }
+
+    
 }
