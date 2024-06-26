@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 1538074615}
   m_Layer: 0
   m_Name: Deck
-  m_TagString: Untagged
+  m_TagString: DeckHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -363,7 +363,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd610c39c7a7f642bfc6ba1a17d7bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sprites:
+  select: 0
+  tile: {fileID: 0}
+  sprites:
   - {fileID: 21300000, guid: 2b47f0b405f1362409ff14cedee27f45, type: 3}
   - {fileID: 21300000, guid: 6a54da02d4a7b5c47a6e7a439d38f335, type: 3}
   - {fileID: 21300000, guid: f105090f3f6338e48939142f8841221e, type: 3}

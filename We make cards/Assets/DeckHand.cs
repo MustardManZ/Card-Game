@@ -5,7 +5,9 @@ using UnityEngine;
 public class DeckHand : MonoBehaviour
 {
     //please don't fool around thanks :D
-    public Sprite[] Sprites;
+    public bool select = false;
+    public GameObject tile;
+    public Sprite[] sprites;
     public GameObject card;
     public List<string> deck = new List<string>();
     public List<GameObject> hand = new List<GameObject>();
@@ -71,15 +73,15 @@ public class DeckHand : MonoBehaviour
 
                 if (deck[1] == "Almost Invisible Person")
                 {
-                    hand[i].GetComponent<CardScript>().newCard(Sprites[1], "hand", "Almost Invisible Person", 1, 3, 2, 2, 4, 1, 0, false, true, false);
+                    hand[i].GetComponent<CardScript>().newCard(sprites[1], "hand", "Almost Invisible Person", 1, 3, 2, 2, 4, 1, 0, false, true, false);
                 }
                 if (deck[1] == "Person")
                 {
-                    hand[i].GetComponent<CardScript>().newCard(Sprites[9], "hand", "Person", 2, 2, 2, 1, 4, 1, 0, false, false, false);
+                    hand[i].GetComponent<CardScript>().newCard(sprites[9], "hand", "Person", 2, 2, 2, 1, 4, 1, 0, false, false, false);
                 }
                 else if (deck[1] == "Knife Guy")
                 {
-                    hand[i].GetComponent<CardScript>().newCard(Sprites[5], "hand", "Knife Guy", 3, 2, 3, 3, 4, 1, 0, false, false, false);
+                    hand[i].GetComponent<CardScript>().newCard(sprites[5], "hand", "Knife Guy", 3, 2, 3, 3, 4, 1, 0, false, false, false);
                 }
                 deck.RemoveAt(1);
             }

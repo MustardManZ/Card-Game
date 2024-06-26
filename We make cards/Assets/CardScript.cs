@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class CardScript : MonoBehaviour
 {
+    public DeckHand deckHand;
+    public bool selected = false;
     Sprite art;
     new string name;
     public int hp;
@@ -21,14 +23,37 @@ public class CardScript : MonoBehaviour
     public bool heroic;
     public string position;
 
+    
+    void Start()
+    {
+        deckHand = GameObject.FindGameObjectWithTag("DeckHand").GetComponent<DeckHand>();
+    }
+
     void Update()
     {
-        transform.Find("Art").GetComponent<SpriteRenderer>().sprite = art;
+        transform.GetComponent<SpriteRenderer>().sprite = art;
         transform.Find("Name (TMP)").GetComponent<TextMeshPro>().text = name;
         transform.Find("Health (TMP)").GetComponent<TextMeshPro>().text = hp.ToString();
         transform.Find("Speed (TMP)").GetComponent<TextMeshPro>().text = speed.ToString();
         transform.Find("Attack (TMP)").GetComponent<TextMeshPro>().text = dmg.ToString();
         transform.Find("Cost (TMP)").GetComponent<TextMeshPro>().text = cost.ToString();
+        
+        if (selected && deckHand.tile != null)
+        {
+            deckHand.hand.Remove(gameObject);
+            transform.position = deckHand.tile.transform.position;
+            deckHand.tile = null;
+            selected = false;
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        if (!deckHand.select)
+        {
+            selected = true;
+            deckHand.select = true;
+        }
     }
 
     public void newCard(Sprite cardArt, string location, string cardName, int cardHp, int cardSpeed, int cardDmg, int cardCost, int cardLimit, int cardRange, int cardArmor, bool cardCharge, bool cardStealth, bool cardHeroic)
