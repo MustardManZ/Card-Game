@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DeckHand : MonoBehaviour
 {
-    public Sprite[] screwYou;
+    //please don't fool around thanks :D
+    public Sprite[] Sprites;
     public GameObject card;
     public List<string> deck = new List<string>();
     public List<GameObject> hand = new List<GameObject>();
@@ -12,7 +13,6 @@ public class DeckHand : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         //build deck
         for (int i = 0; i < 20; i++)
         {
@@ -33,24 +33,30 @@ public class DeckHand : MonoBehaviour
             deck[a] = value;
         }
 
-        //draw 7
-        for (int i = 0; i < 7; i++)
-        {
-            hand.Add(Instantiate(card, transform.position, transform.rotation));
-
-            if (deck[i] == "Person")
-            {
-                hand[i].GetComponent<CardScript>().newCard(screwYou[8], "Person", 2, 2, 2, 1, 4, 1, 0, false, false, false);
-            }
-            else if (deck[i] == "Knife Guy") {
-                hand[i].GetComponent<CardScript>().newCard(screwYou[4], "Knife Guy", 3, 2, 3, 3, 4, 1, 0, false, false, false);
-            }
-        }
+        //starting hand
+        draw(7);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    [ContextMenu("Draw")]
+    public void draw(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            hand.Add(Instantiate(card, transform.position, transform.rotation));
+            if (deck[i] == "Person")
+            {
+                hand[i].GetComponent<CardScript>().newCard(Sprites[9], "hand", "Person", 2, 2, 2, 1, 4, 1, 0, false, false, false);
+            }
+            else if (deck[i] == "Knife Guy")
+            {
+                hand[i].GetComponent<CardScript>().newCard(Sprites[5], "hand", "Knife Guy", 3, 2, 3, 3, 4, 1, 0, false, false, false);
+            }
+        }
     }
 }

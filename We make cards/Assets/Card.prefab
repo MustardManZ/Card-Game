@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aeaf88c17f8d5048a5c99986ac9802b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
+  hp: 2
   speed: 2
   dmg: 2
   cost: 1
@@ -63,6 +63,7 @@ MonoBehaviour:
   stealth: 0
   charge: 0
   heroic: 0
+  position: hand
 --- !u!1 &1771758112726076569
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +505,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
