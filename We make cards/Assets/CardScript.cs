@@ -29,10 +29,6 @@ public class CardScript : MonoBehaviour
         transform.Find("Speed (TMP)").GetComponent<TextMeshPro>().text = speed.ToString();
         transform.Find("Attack (TMP)").GetComponent<TextMeshPro>().text = dmg.ToString();
         transform.Find("Cost (TMP)").GetComponent<TextMeshPro>().text = cost.ToString();
-        if (position == "hand")
-        {
-            
-        }
     }
 
     public void newCard(Sprite cardArt, string location, string cardName, int cardHp, int cardSpeed, int cardDmg, int cardCost, int cardLimit, int cardRange, int cardArmor, bool cardCharge, bool cardStealth, bool cardHeroic)

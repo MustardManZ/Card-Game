@@ -40,7 +40,7 @@ public class DeckHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     [ContextMenu("Draw")]
@@ -49,14 +49,15 @@ public class DeckHand : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             hand.Add(Instantiate(card, transform.position, transform.rotation));
-            if (deck[i] == "Person")
+            if (deck[1] == "Person")
             {
                 hand[i].GetComponent<CardScript>().newCard(Sprites[9], "hand", "Person", 2, 2, 2, 1, 4, 1, 0, false, false, false);
             }
-            else if (deck[i] == "Knife Guy")
+            else if (deck[1] == "Knife Guy")
             {
                 hand[i].GetComponent<CardScript>().newCard(Sprites[5], "hand", "Knife Guy", 3, 2, 3, 3, 4, 1, 0, false, false, false);
             }
+            deck.RemoveAt(1);
         }
     }
 }
