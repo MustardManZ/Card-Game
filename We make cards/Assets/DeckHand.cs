@@ -11,10 +11,19 @@ public class DeckHand : MonoBehaviour
     public GameObject tile;
     public GameObject selectedCard;
 
+    public int circles = 1;
+    public int turn = 1;
+
     public Sprite[] sprites;
     public GameObject card;
     public List<string> deck = new List<string>();
     public List<GameObject> hand = new List<GameObject>();
+
+    public void endTurn()
+    {
+        turn++;
+        circles = turn;
+    }
 
     // Start is called before the first frame update
     void Start()
