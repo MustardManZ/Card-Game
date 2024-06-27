@@ -10,7 +10,6 @@ public class CardScript : MonoBehaviour
     public DeckHand deckHand;
     public bool selected = false;
     public int tilePos;
-
     Sprite art;
     new string name;
     public int hp;
@@ -28,7 +27,7 @@ public class CardScript : MonoBehaviour
     
     void Start()
     {
-        deckHand = GameObject.FindGameObjectWithTag("DeckHand").GetComponent<DeckHand>();
+       deckHand = GameObject.FindGameObjectWithTag("DeckHand").GetComponent<DeckHand>();
     }
 
     void Update()
@@ -39,7 +38,6 @@ public class CardScript : MonoBehaviour
         transform.Find("Speed (TMP)").GetComponent<TextMeshPro>().text = speed.ToString();
         transform.Find("Attack (TMP)").GetComponent<TextMeshPro>().text = dmg.ToString();
         transform.Find("Cost (TMP)").GetComponent<TextMeshPro>().text = cost.ToString();
-        
         if (selected && deckHand.tile != null)
         {
             deckHand.hand.Remove(gameObject);
@@ -58,6 +56,11 @@ public class CardScript : MonoBehaviour
             deckHand.cardPos = tilePos;
             deckHand.cardSpeed = speed;
             deckHand.selectedCard = gameObject;
+        }
+        else if (deckHand.select)
+        {
+            selected = false;
+            deckHand.select = false;
         }
     }
 
