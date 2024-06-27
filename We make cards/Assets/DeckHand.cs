@@ -6,7 +6,11 @@ public class DeckHand : MonoBehaviour
 {
     //please don't fool around thanks :D
     public bool select = false;
+    public int cardPos;
+    public int cardSpeed;
     public GameObject tile;
+    public GameObject selectedCard;
+
     public Sprite[] sprites;
     public GameObject card;
     public List<string> deck = new List<string>();

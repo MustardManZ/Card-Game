@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1639693185536476390}
   m_Layer: 0
   m_Name: Card
-  m_TagString: Untagged
+  m_TagString: CardScript
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1441239897826295661}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.017, y: 0.013, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -56,6 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckHand: {fileID: 0}
   selected: 0
+  tilePos: 0
   hp: 2
   speed: 2
   dmg: 2
@@ -198,8 +199,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.093, y: 0.807}
-  m_SizeDelta: {x: 1.1985, y: 0.169}
+  m_AnchoredPosition: {x: -0.55, y: 2.49}
+  m_SizeDelta: {x: 3.646, y: 0.914}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3662902348078853120
 MeshRenderer:
@@ -290,8 +291,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2
-  m_fontSizeBase: 2
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -369,8 +370,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.634, y: 0.744}
-  m_SizeDelta: {x: 0.2223, y: 0.3142}
+  m_AnchoredPosition: {x: 2.27, y: 2.61}
+  m_SizeDelta: {x: 0.546, y: 0.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &7097600576305280573
 MeshRenderer:
@@ -461,8 +462,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -497,7 +498,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0.015738964, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.015738964, w: 0.35158083}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -540,8 +541,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.538, y: -0.75}
-  m_SizeDelta: {x: 0.2223, y: 0.3142}
+  m_AnchoredPosition: {x: -2.13, y: -2.53}
+  m_SizeDelta: {x: 0.419, y: 0.582}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4971386455968996805
 MeshRenderer:
@@ -632,8 +633,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -742,7 +743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.618, y: -0.75}
+  m_AnchoredPosition: {x: 2.11, y: -2.38}
   m_SizeDelta: {x: 0.2223, y: 0.3142}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5644929028582885735
@@ -834,8 +835,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -944,8 +945,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.023, y: -0.756}
-  m_SizeDelta: {x: 0.2223, y: 0.3142}
+  m_AnchoredPosition: {x: -0.05, y: -2.51}
+  m_SizeDelta: {x: 0.419, y: 0.539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8511714959089087564
 MeshRenderer:
@@ -1036,8 +1037,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

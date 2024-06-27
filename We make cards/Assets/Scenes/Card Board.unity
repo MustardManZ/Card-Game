@@ -364,7 +364,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   select: 0
+  cardPos: 0
+  cardSpeed: 0
   tile: {fileID: 0}
+  selectedCard: {fileID: 0}
   sprites:
   - {fileID: 21300000, guid: 2b47f0b405f1362409ff14cedee27f45, type: 3}
   - {fileID: 21300000, guid: 6a54da02d4a7b5c47a6e7a439d38f335, type: 3}

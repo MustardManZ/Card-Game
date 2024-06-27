@@ -9,6 +9,8 @@ public class CardScript : MonoBehaviour
 {
     public DeckHand deckHand;
     public bool selected = false;
+    public int tilePos;
+
     Sprite art;
     new string name;
     public int hp;
@@ -53,6 +55,9 @@ public class CardScript : MonoBehaviour
         {
             selected = true;
             deckHand.select = true;
+            deckHand.cardPos = tilePos;
+            deckHand.cardSpeed = speed;
+            deckHand.selectedCard = gameObject;
         }
     }
 

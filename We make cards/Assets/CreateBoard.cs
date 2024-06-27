@@ -23,6 +23,7 @@ public class CreateBoard : MonoBehaviour
             {
                 GameObject NewClone = Instantiate(tile, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
                 transform.position += Vector3.down * spacingY;
+                NewClone.GetComponent<BoardScript>().position = 5 - j;
 
             }
             transform.position += Vector3.right * spacingX;
