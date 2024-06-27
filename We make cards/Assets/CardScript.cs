@@ -39,7 +39,9 @@ public class CardScript : MonoBehaviour
         transform.Find("Speed (TMP)").GetComponent<TextMeshPro>().text = speed.ToString();
         transform.Find("Attack (TMP)").GetComponent<TextMeshPro>().text = dmg.ToString();
         transform.Find("Cost (TMP)").GetComponent<TextMeshPro>().text = cost.ToString();
-        selectborder.SetActive(selected);
+
+        selectborder.SetActive(selected && gameObject == deckHand.selectedCard);
+
         if (selected && deckHand.tile != null)
         {
             deckHand.hand.Remove(gameObject);
