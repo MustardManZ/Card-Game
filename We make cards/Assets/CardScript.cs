@@ -23,8 +23,9 @@ public class CardScript : MonoBehaviour
     public bool charge;
     public bool heroic;
     public string position;
+    public GameObject selectborder;
 
-    
+
     void Start()
     {
        deckHand = GameObject.FindGameObjectWithTag("DeckHand").GetComponent<DeckHand>();
@@ -38,6 +39,7 @@ public class CardScript : MonoBehaviour
         transform.Find("Speed (TMP)").GetComponent<TextMeshPro>().text = speed.ToString();
         transform.Find("Attack (TMP)").GetComponent<TextMeshPro>().text = dmg.ToString();
         transform.Find("Cost (TMP)").GetComponent<TextMeshPro>().text = cost.ToString();
+        selectborder.SetActive(selected);
         if (selected && deckHand.tile != null)
         {
             deckHand.hand.Remove(gameObject);
