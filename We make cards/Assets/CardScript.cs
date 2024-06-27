@@ -49,6 +49,11 @@ public class CardScript : MonoBehaviour
             deckHand.tile = null;
             selected = false;
         }
+
+        if (tilePos != 0)
+        {
+            position = "field";
+        }
     }
 
     private void OnMouseDown()
