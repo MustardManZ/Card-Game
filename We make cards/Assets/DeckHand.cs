@@ -20,6 +20,7 @@ public class DeckHand : MonoBehaviour
     public GameObject card;
     public List<string> deck = new List<string>();
     public List<GameObject> hand = new List<GameObject>();
+    public List<string> graveyard = new List<string>();
 
     public void endTurn()
     {
