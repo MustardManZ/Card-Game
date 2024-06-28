@@ -7,6 +7,7 @@ public class BoardScript : MonoBehaviour
 {
     public DeckHand deckHand;
     public int position;
+    public CardScript cardScript;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +18,17 @@ public class BoardScript : MonoBehaviour
     // Update is called once per frame
     void OnMouseDown()
     {
-        if (deckHand.select && Mathf.Abs(deckHand.cardPos - position) <= deckHand.cardSpeed)
+        cardScript = deckHand.selectedCard.GetComponent<CardScript>();
+
+        if (deckHand.select && Mathf.Abs(deckHand.cardPos - position) <= 1 && cardScript.tilesMoved < cardScript.speed)
         {
             deckHand.tile = gameObject;
+            if (cardScript.position != "hand")
+            {
+                cardScript.tilesMoved++;
+            }
+
+            
             if (deckHand.cardPos == 0)
             {
                 if (deckHand.circles >= deckHand.cardCost)
@@ -32,9 +41,12 @@ public class BoardScript : MonoBehaviour
                 }
             }
 
-            deckHand.select = false;
-            deckHand.tile = gameObject;
-            deckHand.selectedCard.GetComponent<CardScript>().tilePos = position;
+            
+                deckHand.select = false;
+                deckHand.tile = gameObject;
+                deckHand.selectedCard.GetComponent<CardScript>().tilePos = position;
+            
+            
         }
     }
 }

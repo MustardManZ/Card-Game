@@ -10,6 +10,8 @@ public class CardScript : MonoBehaviour
     public DeckHand deckHand;
     public bool selected = false;
     public int tilePos;
+    public int tilesMoved = 0;
+
     Sprite art;
     new string name;
     public int hp;
