@@ -64,6 +64,7 @@ public class CardScript : MonoBehaviour
             deckHand.select = true;
             deckHand.cardPos = tilePos;
             deckHand.cardSpeed = speed;
+            deckHand.cardCost = cost;
             deckHand.selectedCard = gameObject;
         }
         else if (deckHand.select)

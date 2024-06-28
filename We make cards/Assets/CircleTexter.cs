@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
+using TMPro;
 
 public class CircleTexter : MonoBehaviour
 {
@@ -15,6 +17,6 @@ public class CircleTexter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<TextMeshPro>().text = deckHand.circles;
+        gameObject.GetComponent<TextMeshPro>().text = deckHand.circles.ToString();
     }
 }

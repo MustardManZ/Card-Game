@@ -19,6 +19,18 @@ public class BoardScript : MonoBehaviour
     {
         if (deckHand.select && Mathf.Abs(deckHand.cardPos - position) <= deckHand.cardSpeed)
         {
+            if (deckHand.cardPos == 0)
+            {
+                if (deckHand.circles >= deckHand.cardCost)
+                {
+                    deckHand.circles -= deckHand.cardCost;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
             deckHand.select = false;
             deckHand.tile = gameObject;
             deckHand.selectedCard.GetComponent<CardScript>().tilePos = position;

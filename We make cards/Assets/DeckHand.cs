@@ -8,6 +8,7 @@ public class DeckHand : MonoBehaviour
     public bool select = false;
     public int cardPos;
     public int cardSpeed;
+    public int cardCost;
     public GameObject tile;
     public GameObject selectedCard;
 
