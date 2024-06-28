@@ -100,7 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckHand: {fileID: 0}
   position: 0
-  cardScript: {fileID: 0}
 --- !u!61 &7227554432895816223
 BoxCollider2D:
   m_ObjectHideFlags: 0
