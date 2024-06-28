@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DeckHand : MonoBehaviour
@@ -9,11 +10,11 @@ public class DeckHand : MonoBehaviour
     public int cardPos;
     public int cardSpeed;
     public int cardCost;
-    public GameObject tile;
     public GameObject selectedCard;
 
     public int circles = 1;
     public int turn = 1;
+    public bool cardPlayed = false;
 
     public Sprite[] sprites;
     public GameObject card;
@@ -24,6 +25,17 @@ public class DeckHand : MonoBehaviour
     {
         turn++;
         circles = turn;
+        draw(1);
+        if (!cardPlayed)
+        {
+            draw(1);
+        }
+        cardPlayed = false;
+        GameObject[] cards = GameObject.FindGameObjectsWithTag("CardScript");
+        for (int i = 0; i < cards.Length; i++)
+        {
+            cards[i].GetComponent<CardScript>().tilesMoved = 0;
+        }
     }
 
     // Start is called before the first frame update
@@ -76,7 +88,8 @@ public class DeckHand : MonoBehaviour
     [ContextMenu("Draw")]
     public void draw(int amount)
     {
-        for (int i = 0; i < amount; i++)
+        int currHandLength = hand.Count;
+        for (int i = currHandLength; i < currHandLength + amount; i++)
         {
             if (hand.Count != 10)
             {

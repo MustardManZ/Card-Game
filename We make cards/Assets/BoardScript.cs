@@ -22,14 +22,7 @@ public class BoardScript : MonoBehaviour
 
         if (deckHand.select && Mathf.Abs(deckHand.cardPos - position) <= 1 && cardScript.tilesMoved < cardScript.speed)
         {
-            deckHand.tile = gameObject;
-            if (cardScript.position != "hand")
-            {
-                cardScript.tilesMoved++;
-            }
-
-            
-            if (deckHand.cardPos == 0)
+            if (cardScript.position == "hand")
             {
                 if (deckHand.circles >= deckHand.cardCost)
                 {
@@ -39,14 +32,19 @@ public class BoardScript : MonoBehaviour
                 {
                     return;
                 }
+                deckHand.cardPlayed = true;
+                cardScript.position = "field";
             }
-
-            
-                deckHand.select = false;
-                deckHand.tile = gameObject;
-                deckHand.selectedCard.GetComponent<CardScript>().tilePos = position;
-            
-            
+            else
+            {
+                cardScript.tilesMoved++;
+            }
+            deckHand.hand.Remove(cardScript.gameObject);
+            deckHand.selectedCard.transform.position = gameObject.transform.position;
+            deckHand.selectedCard.GetComponent<CardScript>().tilePos = position;
         }
+        cardScript.selected = false;
+        deckHand.select = false;
+        deckHand.selectedCard = null;
     }
 }

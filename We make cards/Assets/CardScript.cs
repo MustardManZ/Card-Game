@@ -42,21 +42,10 @@ public class CardScript : MonoBehaviour
         transform.Find("Attack (TMP)").GetComponent<TextMeshPro>().text = dmg.ToString();
         transform.Find("Cost (TMP)").GetComponent<TextMeshPro>().text = cost.ToString();
 
-        selectborder.SetActive(selected && gameObject == deckHand.selectedCard);
-
-        if (selected && deckHand.tile != null)
+        selectborder.SetActive(selected);
+        if (selected && !deckHand.select)
         {
-            deckHand.hand.Remove(gameObject);
-            transform.position = deckHand.tile.transform.position;
-            deckHand.tile = null;
-
-            deckHand.selectedCard = null;
             selected = false;
-        }
-
-        if (tilePos != 0)
-        {
-            position = "field";
         }
     }
 
@@ -64,8 +53,8 @@ public class CardScript : MonoBehaviour
     {
         if (!deckHand.select)
         {
-            selected = true;
             deckHand.select = true;
+            selected = true;
             deckHand.cardPos = tilePos;
             deckHand.cardSpeed = speed;
             deckHand.cardCost = cost;
