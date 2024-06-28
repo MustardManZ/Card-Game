@@ -21,6 +21,8 @@ public class BoardScript : MonoBehaviour
         if (deckHand.select)
         {
             deckHand.tile = gameObject;
+            deckHand.select = false;
+            deckHand.selectedCard = null;
         }
     }
 }

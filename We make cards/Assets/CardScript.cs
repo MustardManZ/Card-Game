@@ -55,8 +55,7 @@ public class CardScript : MonoBehaviour
             deckHand.hand.Remove(gameObject);
             transform.position = deckHand.tile.transform.position;
             deckHand.tile = null;
-            deckHand.selectedCard = null;
-            selected = false;
+            selected = false; deckHand.circles -= deckHand.cardCost;
         }
 
         if (tilePos != 0)
