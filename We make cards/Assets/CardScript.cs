@@ -28,11 +28,19 @@ public class CardScript : MonoBehaviour
 
     void Start()
     {
-       deckHand = GameObject.FindGameObjectWithTag("DeckHand").GetComponent<DeckHand>();
+        deckHand = GameObject.FindGameObjectWithTag("DeckHand").GetComponent<DeckHand>();
     }
 
     void Update()
     {
+        if (deckHand.selectedCard == gameObject)
+        {
+            selected = true;
+        }
+        else 
+        {
+            selected = false;
+        }
         transform.GetComponent<SpriteRenderer>().sprite = art;
         transform.Find("Name (TMP)").GetComponent<TextMeshPro>().text = name;
         transform.Find("Health (TMP)").GetComponent<TextMeshPro>().text = hp.ToString();
@@ -41,13 +49,13 @@ public class CardScript : MonoBehaviour
         transform.Find("Cost (TMP)").GetComponent<TextMeshPro>().text = cost.ToString();
 
         selectborder.SetActive(selected && gameObject == deckHand.selectedCard);
-
-        if (selected && deckHand.tile != null)
+        if (selected && deckHand.tile != null && position == "hand" && (deckHand.circles >= cost) && deckHand.tile.transform.position.y < -3.7)
         {
+            deckHand.circles -= deckHand.cardCost;
             deckHand.hand.Remove(gameObject);
             transform.position = deckHand.tile.transform.position;
             deckHand.tile = null;
-            selected = false;
+            selected = false; deckHand.circles -= deckHand.cardCost;
         }
 
         if (tilePos != 0)
@@ -60,17 +68,23 @@ public class CardScript : MonoBehaviour
     {
         if (!deckHand.select)
         {
-            selected = true;
             deckHand.select = true;
             deckHand.cardPos = tilePos;
             deckHand.cardSpeed = speed;
             deckHand.cardCost = cost;
             deckHand.selectedCard = gameObject;
         }
-        else if (deckHand.select)
+        else if (deckHand.select && deckHand.selectedCard == gameObject)
         {
-            selected = false;
             deckHand.select = false;
+            deckHand.selectedCard = null;
+        }
+        else if (deckHand.select && deckHand.selectedCard != gameObject)
+        {
+            deckHand.cardPos = tilePos;
+            deckHand.cardSpeed = speed;
+            deckHand.cardCost = cost;
+            deckHand.selectedCard = gameObject;
         }
     }
 
@@ -85,4 +99,5 @@ public class CardScript : MonoBehaviour
         cost = cardCost;
         limit = cardLimit;
     }
+
 }

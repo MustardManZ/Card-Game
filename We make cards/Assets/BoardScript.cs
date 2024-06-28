@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -17,23 +18,11 @@ public class BoardScript : MonoBehaviour
     // Update is called once per frame
     void OnMouseDown()
     {
-        if (deckHand.select && Mathf.Abs(deckHand.cardPos - position) <= deckHand.cardSpeed)
+        if (deckHand.select)
         {
-            if (deckHand.cardPos == 0)
-            {
-                if (deckHand.circles >= deckHand.cardCost)
-                {
-                    deckHand.circles -= deckHand.cardCost;
-                }
-                else
-                {
-                    return;
-                }
-            }
-
-            deckHand.select = false;
             deckHand.tile = gameObject;
-            deckHand.selectedCard.GetComponent<CardScript>().tilePos = position;
+            deckHand.select = false;
+            deckHand.selectedCard = null;
         }
     }
 }

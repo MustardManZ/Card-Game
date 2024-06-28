@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DeckHand : MonoBehaviour
 {
-    //please don't fool around thanks :D
     public bool select = false;
     public int cardPos;
     public int cardSpeed;
@@ -24,6 +23,8 @@ public class DeckHand : MonoBehaviour
     {
         turn++;
         circles = turn;
+        selectedCard = null;
+        tile = null;
     }
 
     // Start is called before the first frame update
