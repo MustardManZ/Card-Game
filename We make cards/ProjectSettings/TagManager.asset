@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DeckHand
   - CardScript
+  - Logic
   layers:
   - Default
   - TransparentFX
