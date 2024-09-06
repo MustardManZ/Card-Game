@@ -218,6 +218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 170085769}
   - component: {fileID: 170085768}
+  - component: {fileID: 170085770}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -257,6 +258,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &170085770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170085767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a223ef53244de8409e680f126710b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deckHand: {fileID: 0}
+  position: 0
+  cardScript: {fileID: 0}
+  target: {fileID: 0}
 --- !u!1 &330183828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,10 +1022,12 @@ MonoBehaviour:
   cardPos: 0
   cardSpeed: 0
   cardCost: 0
-  tile: {fileID: 0}
+  cardName: 
+  cardHealth: 0
   selectedCard: {fileID: 0}
   circles: 1
   turn: 1
+  cardPlayed: 0
   sprites:
   - {fileID: 21300000, guid: 2b47f0b405f1362409ff14cedee27f45, type: 3}
   - {fileID: 21300000, guid: 6a54da02d4a7b5c47a6e7a439d38f335, type: 3}
@@ -1027,6 +1046,7 @@ MonoBehaviour:
   card: {fileID: 1441239897826295661, guid: 68f715fd6ab52bd4898fedcf2015ec16, type: 3}
   deck: []
   hand: []
+  graveyard: []
 --- !u!4 &1538074616
 Transform:
   m_ObjectHideFlags: 0

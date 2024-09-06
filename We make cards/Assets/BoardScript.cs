@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class BoardScript : MonoBehaviour
     public DeckHand deckHand;
     public int position;
     public CardScript cardScript;
+    public GameObject target = null;
 
     // Start is called before the first frame update
     void Start()
@@ -15,8 +17,7 @@ public class BoardScript : MonoBehaviour
         deckHand = GameObject.FindGameObjectWithTag("DeckHand").GetComponent<DeckHand>();
     }
 
-    // Update is called once per frame
-    void OnMouseDown()
+    async void OnMouseDown()
     {
         cardScript = deckHand.selectedCard.GetComponent<CardScript>();
 
@@ -32,6 +33,14 @@ public class BoardScript : MonoBehaviour
                 {
                     return;
                 }
+
+                //on cast non target effects can go here
+
+                if (deckHand.cardName == "Cloud")
+                {
+                    deckHand.draw(1);
+                }
+
                 deckHand.cardPlayed = true;
                 cardScript.position = "field";
             }
@@ -39,12 +48,44 @@ public class BoardScript : MonoBehaviour
             {
                 cardScript.tilesMoved++;
             }
+
+            if (deckHand.selectedCard.GetComponent<CardScript>().hp <= 0 && cardScript.position == "field")
+            {
+                deckHand.selectedCard.SetActive(false);
+            }
+
             deckHand.hand.Remove(cardScript.gameObject);
             deckHand.selectedCard.transform.position = gameObject.transform.position;
             deckHand.selectedCard.GetComponent<CardScript>().tilePos = position;
+
+            //target oncasts
+            if (deckHand.cardName == "Stab")
+            {
+                Debug.Log("Procced");
+                target = null;
+                while (!target)
+                {
+                    if (Input.GetMouseButtonDown(0) && deckHand.select && deckHand.cardHealth != 0)
+                    {
+                        target = deckHand.selectedCard;
+                    }
+                    await Task.Delay(1);
+                    Debug.Log(target);
+
+                }
+                target.GetComponent<CardScript>().hp = target.GetComponent<CardScript>().hp - 1;
+                if (target.GetComponent<CardScript>().hp <= 0)
+                {
+                    deckHand.selectedCard.SetActive(false);
+                }
+                target = null;
+                Debug.Log("Stabbed");
+            }
         }
+
         cardScript.selected = false;
         deckHand.select = false;
         deckHand.selectedCard = null;
     }
+
 }

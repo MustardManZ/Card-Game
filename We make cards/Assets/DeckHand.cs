@@ -10,6 +10,8 @@ public class DeckHand : MonoBehaviour
     public int cardPos;
     public int cardSpeed;
     public int cardCost;
+    public string cardName;
+    public int cardHealth;
     public GameObject selectedCard;
 
     public int circles = 1;
@@ -43,18 +45,26 @@ public class DeckHand : MonoBehaviour
     void Start()
     {
         //build deck
-        for (int i = 0; i < 13; i++)
+        for (int i = 0; i < 8; i++)
         {
             deck.Add("Person");
         }
 
-        for (int i = 0; i < 14; i++)
+        for (int i = 0; i < 8; i++)
         {
             deck.Add("Knife Guy");
         }
-        for (int i = 0; i < 13; i++)
+        for (int i = 0; i < 8; i++)
         {
             deck.Add("Almost Invisible Person");
+        }
+        for (int i = 0; i < 8; i++)
+        {
+            deck.Add("Cloud");
+        }
+        for (int i = 0; i < 8; i++)
+        {
+            deck.Add("Stab");
         }
 
         //shuffle
@@ -98,6 +108,7 @@ public class DeckHand : MonoBehaviour
                 hand[i].name = deck[1];
 
                 //first bool is charge, second bool is stealth, third bool is heroic
+                //hp, speed, attack, cost, copies, range, armor
 
                 if (deck[1] == "Almost Invisible Person")
                 {
@@ -110,6 +121,14 @@ public class DeckHand : MonoBehaviour
                 else if (deck[1] == "Knife Guy")
                 {
                     hand[i].GetComponent<CardScript>().newCard(sprites[5], "hand", "Knife Guy", 3, 2, 3, 3, 4, 1, 0, false, false, false);
+                }
+                else if (deck[1] == "Cloud")
+                {
+                    hand[i].GetComponent<CardScript>().newCard(sprites[2], "hand", "Cloud", 3, 2, 2, 2, 4, 1, 0, false, false, false);
+                }
+                else if (deck[1] == "Stab")
+                {
+                    hand[i].GetComponent<CardScript>().newCard(sprites[13], "hand", "Stab", 0, 1, 0, 2, 4, 1, 0, false, false, false);
                 }
                 deck.RemoveAt(1);
             }
